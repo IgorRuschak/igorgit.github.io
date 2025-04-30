@@ -436,7 +436,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="?page=index" aria-label="Подорожі Україною">Подорожі</a></div>
+            <div class="logo"><a href="?page=index" aria-label="Подорожі Україною">Подорожі</a>
             <ul class="nav-links">
                 <li><a href="?page=index" class="nav-link">Головна</a></li>
                 <li><a href="?page=places" class="nav-link">Цікаві місця</a></li>
@@ -444,7 +444,8 @@
                 <li><button id="loginBtn" class="nav-btn">Увійти</button></li>
                 <li><button id="registerBtn" class="nav-btn">Реєстрація</button></li>
             </ul>
-            <div class="burger">
+            </div>
+                <div class="podorogi">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -665,7 +666,7 @@
         }
 
    
-        const podorogi = document.querySelector('.burger');
+        const podorogi = document.querySelector('.podorogi');
         const navLinks = document.querySelector('.nav-links');
 
         if (podorogi && navLinks) {
