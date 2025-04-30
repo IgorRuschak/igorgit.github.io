@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подорожі Україною</title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +19,6 @@
             background-color: #f9f9f9;
         }
 
-       
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -74,24 +71,19 @@
             background-color: #2980b9;
         }
 
-        {
+        .burger {
             display: none;
             cursor: pointer;
         }
 
-        .podorogi div {
+        .burger div {
             width: 25px;
             height: 3px;
             background-color: white;
             margin: 5px;
             transition: all 0.3s ease;
         }
-        
 
-        
-        
-
-        
         main {
             padding: 2rem 5%;
             min-height: calc(100vh - 150px);
@@ -128,7 +120,6 @@
             background-color: #2980b9;
         }
 
-      
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -149,7 +140,14 @@
             transform: translateY(-10px);
         }
 
-       
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
         .places-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -171,9 +169,8 @@
 
         .place-card img {
             width: 100%;
-            max-height: 200px;
+            height: 200px;
             object-fit: cover;
-            aspect-ratio: 3/2;
         }
 
         .place-card h2 {
@@ -199,7 +196,6 @@
             background-color: #2980b9;
         }
 
-       
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -267,7 +263,6 @@
             font-size: 1.2rem;
         }
 
-       
         footer .social-links .social-icon {
             color: white;
         }
@@ -276,7 +271,6 @@
             color: #3498db;
         }
 
-      
         .contact-info .social-links .social-icon {
             color: #2c3e50;
         }
@@ -285,7 +279,6 @@
             color: #3498db;
         }
 
-      
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -297,7 +290,6 @@
             margin-bottom: 1rem;
         }
 
-        
         .modal {
             display: none;
             position: fixed;
@@ -366,7 +358,6 @@
             background-color: #2980b9;
         }
 
-       
         .glow {
             animation: glow 2s ease-in-out infinite alternate;
         }
@@ -386,7 +377,6 @@
             color: #2c3e50;
         }
 
- 
         @media screen and (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -421,7 +411,6 @@
             }
         }
 
-     
         .toggle .line1 {
             transform: rotate(-45deg) translate(-5px, 6px);
         }
@@ -436,7 +425,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="?page=index" aria-label="Подорожі Україною">Подорожі</a>
+            <div class="logo"><a href="?page=index" aria-label="Подорожі Україною">Подорожі</a></div>
             <ul class="nav-links">
                 <li><a href="?page=index" class="nav-link">Головна</a></li>
                 <li><a href="?page=places" class="nav-link">Цікаві місця</a></li>
@@ -444,8 +433,7 @@
                 <li><button id="loginBtn" class="nav-btn">Увійти</button></li>
                 <li><button id="registerBtn" class="nav-btn">Реєстрація</button></li>
             </ul>
-            </div>
-                <div class="podorogi">
+            <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -453,9 +441,7 @@
         </nav>
     </header>
 
-    <main id="main-content">
-       
-    </main>
+    <main id="main-content"></main>
 
     <footer>
         <div class="social-links">
@@ -466,7 +452,6 @@
         <p>© 2025 Подорожі Україною</p>
     </footer>
 
-    
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -480,7 +465,6 @@
         </div>
     </div>
 
-  
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -492,7 +476,6 @@
             </form>
         </div>
     </div>
-
 
     <div id="exploreModal" class="modal">
         <div class="modal-content">
@@ -509,14 +492,12 @@
     </div>
 
     <script>
-       
         function loadPage() {
             const urlParams = new URLSearchParams(window.location.search);
             const page = urlParams.get('page') || 'index';
             const mainContent = document.getElementById('main-content');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').includes(page)) {
@@ -524,7 +505,6 @@
                 }
             });
 
-          
             const pages = {
                 index: `
                     <section class="hero">
@@ -536,21 +516,17 @@
                         <div class="feature-card">
                             <h2>Гори</h2>
                             <p>Відвідайте Карпати та Кримські гори</p>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7DHtrkKIKlmX6t7wFGPB_MMJliy7C-T4Tsw&s"
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7DHtrkKIKlmX6t7wFGPB_MMJliy7C-T4Tsw&s" alt="Карпати" loading="lazy">
                         </div>
-                        </section>
-                        <section class="features">
                         <div class="feature-card">
                             <h2>Міста</h2>
                             <p>Історичні та сучасні міста України</p>
-<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQTmQPJGa-WwokVVQLLg4y51PImpaqFEJ7covGt93Gcs4TN2ImleqmS3OnzCwtQrH3P3hj6xJvCvwuDwhRBDdm9uPMJTz_EeXpoYCQUog"
+                            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQTmQPJGa-WwokVVQLLg4y51PImpaqFEJ7covGt93Gcs4TN2ImleqmS3OnzCwtQrH3P3hj6xJvCvwuDwhRBDdm9uPMJTz_EeXpoYCQUog" alt="Міста України" loading="lazy">
                         </div>
-                         </section>
-                         <section class="features">
                         <div class="feature-card">
                             <h2>Природа</h2>
                             <p>Національні парки та заповідники</p>
-<img src="https://visitukraine.today/media/blog/previews/jlFkIAE7IjfXwJotqnKTA0EPs32AtDfV5SClRHZL.webp"
+                            <img src="https://visitukraine.today/media/blog/previews/jlFkIAE7IjfXwJotqnKTA0EPs32AtDfV5SClRHZL.webp" alt="Природа України" loading="lazy">
                         </div>
                     </section>
                 `,
@@ -561,37 +537,37 @@
                             <img src="https://lh3.googleusercontent.com/gps-cs-s/AB5caB937pMhR7SWwmYx4lv_CaUSYhXYye9GJ_pSByjGhEwrvxxCYWddHfefVm-wsjZWTk69DB9BKFcciRRzUjyvhU03N47FL6dvFOxmIpsqIrMP2iiDxIf5223llp45HKGV4oDPFVs=s680-w680-h510-rw" alt="Києво-Печерська лавра" loading="lazy">
                             <h2>Києво-Печерська лавра</h2>
                             <p>Один з найбільших православних монастирських комплексів у світі, заснований у 1051 році.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Києво-Печерська_лавра" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Києво-Печерська_лавра" target="_blank" class="read-more">Читати більше</a>
                         </div>
                         <div class="place-card">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%B8_%D0%A1%D0%B8%D0%BD%D0%B5%D0%B2%D0%B8%D1%80%D1%83.jpg/640px-%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%B8_%D0%A1%D0%B8%D0%BD%D0%B5%D0%B2%D0%B8%D1%80%D1%83.jpg" alt="Озеро Синевир" loading="lazy">
                             <h2>Озеро Синевир</h2>
                             <p>Найбільше і найкрасивіше озеро в Українських Карпатах, розташоване на висоті 989 метрів.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Синевир" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Синевир" target="_blank" class="read-more">Читати більше</a>
                         </div>
                         <div class="place-card">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/73-250-0001_Khotyn_Fortress_RB_18.jpg" alt="Хотинська фортеця" loading="lazy">
                             <h2>Хотинська фортеця</h2>
                             <p>Середньовічна фортеця X-XVIII століть, одна з найкраще збережених пам'яток оборонної архітектури.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Хотинська_фортеця" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Хотинська_фортеця" target="_blank" class="read-more">Читати більше</a>
                         </div>
                         <div class="place-card">
                             <img src="https://karpatium.com.ua/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZ1VOIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--89e43d484c9fbd10264a195671e97e09084c6974/DJI_0075-2.jpg?disposition=attachment" alt="Олеський замок" loading="lazy">
                             <h2>Олеський замок</h2>
                             <p>Одна з найстаріших пам'яток оборонної архітектури Галичини, побудована у XIV столітті.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Олеський_замок" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Олеський_замок" target="_blank" class="read-more">Читати більше</a>
                         </div>
                         <div class="place-card">
                             <img src="https://most.ks.ua/wp-content/uploads/2024/05/img_3249.jpg" alt="Асканія-Нова" loading="lazy">
                             <h2>Асканія-Нова</h2>
                             <p>Унікальний біосферний заповідник, де зберігається ділянка цілинного степу.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Асканія-Нова_(заповідник)" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Асканія-Нова_(заповідник)" target="_blank" class="read-more">Читати більше</a>
                         </div>
                         <div class="place-card">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Zamek_w_Kamie%C5%84cu_Podolskim_2019.jpg" alt="Каменець-Подільський" loading="lazy">
                             <h2>Каменець-Подільський</h2>
                             <p>Місто з унікальним історико-архітектурним комплексом, засноване у XI столітті.</p>
-                            <a href="https://uk.wikipedia.org/wiki/Каменець-Подольськ" class="read-more">Читати більше</a>
+                            <a href="https://uk.wikipedia.org/wiki/Каменець-Подольськ" target="_blank" class="read-more">Читати більше</a>
                         </div>
                     </div>
                 `,
@@ -626,11 +602,9 @@
             };
 
             mainContent.innerHTML = pages[page] || pages.index;
-
             initEventListeners();
         }
 
-      
         function initEventListeners() {
             const exploreBtn = document.getElementById('exploreBtn');
             const exploreModal = document.getElementById('exploreModal');
@@ -662,35 +636,28 @@
                     contactForm.reset();
                 });
             }
-
-            document.querySelectorAll('.read-more').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const placeId = link.getAttribute('href').substring(1);
-                    alert(`Докладна інформація про ${placeId} буде доступна незабаром!`);
-                });
-            });
         }
 
-   
-        const podorogi = document.querySelector('.podorogi');
+        const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
 
-        if (podorogi && navLinks) {
-            podorogi.addEventListener('click', () => {
+        if (burger && navLinks) {
+            burger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                podorogi.classList.toggle('toggle');
+                burger.classList.toggle('toggle');
             });
 
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
-                    podorogi.classList.remove('toggle');
+                    burger.classList.remove('toggle');
+                    const href = link.getAttribute('href');
+                    window.history.pushState({}, '', href);
+                    loadPage();
                 });
             });
         }
 
-       
         const registerBtn = document.getElementById('registerBtn');
         const loginBtn = document.getElementById('loginBtn');
         const registerModal = document.getElementById('registerModal');
@@ -791,13 +758,8 @@
             });
         });
 
-        
         loadPage();
-
-       
         window.addEventListener('popstate', loadPage);
     </script>
-</body>
-</html>
 </body>
 </html>
